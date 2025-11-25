@@ -1,0 +1,4 @@
+﻿l_english:
+ war_goal_red_turban_rebellions_wargoal: "$generic_war_goal_take_capital$"
+ war_goal_red_turban_rebellions_wargoal_desc: "$generic_war_goal_take_capital_desc$"
+ red_turban_rebellions_WAR_NAME: "The $NUM$$ORDER$ $SECOND$ $red_turban_rebellions$"

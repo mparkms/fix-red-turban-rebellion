@@ -1,0 +1,47 @@
+REPLACE:red_turban_rebellions_wargoal = {
+	type = take_capital
+	war_name = "red_turban_rebellions_WAR_NAME" #uses first
+	attacker = {
+		conquer_cost = 0.02
+		subjugate_cost = 0.02
+		antagonism = 0.02
+		allowed_locations = {
+			OR = {
+				region = region:east_china_region
+				region = region:north_china_region
+				region = region:south_china_region
+				region = region:west_china_region
+			}
+		}
+	}
+	defender = {
+		conquer_cost = 0.02
+		subjugate_cost = 0.02
+		antagonism = 0.02
+	}
+	ticking_war_score = 1.25
+}
+
+REPLACE:red_turban_rebellions_against_other_rebels_wargoal = {
+	type = superiority 
+	war_name = "red_turban_rebellions_AGAINST_OTHER_REBELS_WAR_NAME" #uses first and second
+	attacker = {
+		conquer_cost = 0.02
+		subjugate_cost = 0.02
+		antagonism = 0.02
+		allowed_locations = {
+			OR = {
+				region = region:east_china_region
+				region = region:north_china_region
+				region = region:south_china_region
+				region = region:west_china_region
+			}
+		}
+	}
+	defender = {
+		conquer_cost = 0.02
+		subjugate_cost = 0.02
+		antagonism = 0.02
+	}
+	ticking_war_score = 1.25
+}

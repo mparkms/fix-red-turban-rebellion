@@ -1,0 +1,12 @@
+﻿{
+  "name" : "Fix Red Turban Rebellion",
+  "id" : "fix_red_turban_rebellion",
+  "version" : "1.0",
+  "game_id" : "eu5",
+  "picture" : null,
+  "supported_game_version" : "1.0.7",
+  "short_description" : "Fixes Red Turban Rebellion situation",
+  "tags" : [ "Fixes", "Balance", "Historical" ],
+  "relationships" : [ ],
+  "game_custom_data" : { }
+}

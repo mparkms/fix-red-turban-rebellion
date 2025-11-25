@@ -1,0 +1,41 @@
+REPLACE:rtr_situation_end_requirements = {
+    situation:red_turban_rebellions = { years_since_situation_start > 20 }
+    OR = {
+        NOT = { exists = international_organization:middle_kingdom }
+        current_age_or_later = { age = age_3_discovery }
+        trigger_if = {
+            limit = {
+                exists = international_organization:red_turban_rebels.leader_country
+                exists = international_organization:middle_kingdom
+            }
+            international_organization:middle_kingdom = {
+                any_international_organization_owned_location = {
+                    is_owned_or_owned_by_subjects_or_below_of = international_organization:red_turban_rebels.leader_country
+                    percent >= 0.75
+                }
+            }
+        }
+        trigger_else = {
+            exists = international_organization:red_turban_rebels
+
+            custom_tooltip = {
+                text = red_turban_rebellions_strongest_red_turban_rebel_tt
+                exists = international_organization:red_turban_rebels
+                international_organization:red_turban_rebels = {
+                    international_organization_has_leader = yes
+                }
+            }
+        }
+        global_var:rtr_yuan ?= {
+            legitimacy >= 90
+            stability >= 30
+            current_celestial_authority = { value = 50 }
+            trigger_if = {
+                limit = {
+                    exists = international_organization:red_turban_rebels
+                }
+                international_organization:red_turban_rebels = { total_members < 1 }
+            }
+        }
+    }
+}

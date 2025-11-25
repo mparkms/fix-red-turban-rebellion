@@ -1,0 +1,32 @@
+REPLACE:rtr_grant_annexation_cb_in = {
+    $geography$ = {
+        every_country_with_capital_in_geography = {
+            limit = {
+                NOT = { this = $country$ }
+                NOT = { is_subject_or_below_of = $country$ }
+            }
+            $country$ = {
+                add_casus_belli = {
+                    target = prev
+                    type = casus_belli:cb_chinese_unification
+                    years = 20
+                }
+            }
+        }
+    }
+}
+
+rtr_yuan_lose_tributaries = {
+    # Yuan loses all tributaries outside of Mongolia region
+    $country$ = {
+        every_subject = {
+            limit = {
+                is_subject_type = tributary
+                not = {
+                    this.capital.region = region:mongolia_region
+                }
+            }
+            overlord = { cancel_subject = prev }
+        }
+    }
+}

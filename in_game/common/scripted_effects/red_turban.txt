@@ -30,3 +30,46 @@ rtr_yuan_lose_tributaries = {
         }
     }
 }
+
+REPLACE:rtr_recreate_middle_kingdom = {
+    custom_tooltip = {
+        text = rtr_recreate_middle_kingdom.tt
+        trigger_event_non_silently = flavor_chi.115
+        if = {
+            limit = { NOT = { exists = international_organization:middle_kingdom } }
+            create_international_organization = {
+                type = international_organization_type:middle_kingdom
+            }
+            set_up_proper_china_for_middle_kingdom = yes
+        }
+        save_scope_as = rtr_winner
+        international_organization:middle_kingdom ?= {
+            leader_country ?= {
+                every_subject = {
+                    limit = { is_subject_type = tusi }
+                    overlord = { cancel_subject = prev }
+                    make_subject_of = {
+                        target = scope:rtr_winner
+                        type = subject_type:tusi
+                    }
+                }
+            }
+            add_country_to_international_organization = prev
+            set_leader_country = prev
+        }
+        change_celestial_authority = { value = celestial_authority_very_strong_bonus }
+        change_country_tag = CHI
+        save_scope_as = country_to_pass_to_scripted_effect
+        rtr_core_all_of_china_effect = { country = scope:country_to_pass_to_scripted_effect }
+        every_present_culture_in_country = {
+            limit = {
+                has_culture_group = culture_group:chinese_group
+                NOR = {
+                    is_primary_or_accepted_in = prev
+                    is_tolerated_in = prev
+                }
+            }
+            prev = { add_tolerated_culture = prev }
+        }
+    }
+}
